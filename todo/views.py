@@ -6,4 +6,9 @@ from .models import Todo
 # Create your views here.
 class TodoView(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
-    queryset = Todo.objects.all()
+    def get_queryset(self):
+        queryset = Todo.objects.all()
+        date = self.request.query_params.get('date', None)
+        if date is not None:
+            queryset = queryset.filter(date_added=date)
+        return queryset
