@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 router.register(r'todos', views.TodoView, 'todo')
 
 urlpatterns = [
+    path('', views.HomePageView.as_view()),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('token-auth/', obtain_jwt_token)

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .serializers import TodoSerializer
 from .models import Todo
+from django.views.generic import TemplateView
 
 from datetime import datetime, timedelta
 # Create your views here.
@@ -26,3 +27,6 @@ class TodoView(viewsets.ModelViewSet):
                 queryset = queryset.filter(
                     date_added__gte=start).filter(date_added__lte=end)
         return queryset
+
+class HomePageView(TemplateView):
+    template_name = 'index.html'
