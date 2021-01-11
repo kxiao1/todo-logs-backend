@@ -8,6 +8,7 @@ Uses Django as a backend to store a list of todo's. Built with
 * Install the above packages (for example with pip): \
     ``python -m pip install django django-cors-headers djangorestframework djangorestframework-simple-jwt``
 * Create ``backend/secret_key.py`` (same directory as ``settings.py``) with the line ``SECRET_KEY = 'YourSecretKey'``.
+* Update ``CORS_ALLOWED_ORIGIN_REGEXES`` in ``settings.py`` to include this app's front-end domain. 
 * Run the following commands:
     * ``python manage.py migrate``
     * ``python manage.py createsuperuser``
